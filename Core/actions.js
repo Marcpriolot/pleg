@@ -1,7 +1,16 @@
 #!/usr/bin/env node
 
+var exec = require('child_process').exec;
+var config = "win";
 
-var exec = require('child_process').exec, child;
+function testConfig(){
+    exec('dir',
+        function (error, stdout, stderr) {
+            if (error !== null) {
+                config = "linux"
+            }
+        });
+}
 
 function ajouter() {
     //ajout d'un fichier
@@ -14,26 +23,31 @@ function supprimer() {
 
 function lister() {
     console.log("Listation en cours")
-    exec('dir',
-        function (error, stdout, stderr) {
-            console.log('stdout: ' + stdout);
-            console.log('stderr: ' + stderr);
-            if (error !== null) {
-                exec('ls',
-                    function (error, stdout, stderr) {
-                        console.log('stdout: ' + stdout);
-                        console.log('stderr: ' + stderr);
-                        if (error !== null) {
-                            console.log('exec error: ' + error);
-                        }
-                    });
-                console.log('exec error: ' + error);
-            }
-        });
+
+    if(config === "win"){
+        exec('dir',
+            function (error, stdout, stderr) {
+                console.log('stdout: ' + stdout);
+                console.log('stderr: ' + stderr);
+                if (error !== null) {
+                    console.log('exec error: ' + error);
+                }
+            });
+    } else {
+        exec('ls',
+            function (error, stdout, stderr) {
+                console.log('stdout: ' + stdout);
+                console.log('stderr: ' + stderr);
+                if (error !== null) {
+                    console.log('exec error: ' + error);
+                }
+            });
+    }
 }
 
 module.exports = {
     ajouter,
     supprimer,
-    lister
+    lister,
+    testConfig,
 }
