@@ -12,7 +12,7 @@ inquirer.prompt([
     },
     {
         name: 'fichierOrigine',
-        type: 'checkbox',
+        type: 'list',
         message: 'Que voulez-vous encoder ?',
         choices: [
             'Vidéo',
@@ -26,7 +26,7 @@ inquirer.prompt([
     },
     {
         name: 'destination',
-        type: 'checkbox',
+        type: 'list',
         message: 'Quel est la destination du fichier',
         choices: [
             'Même endroit',
@@ -64,7 +64,7 @@ inquirer.prompt([
             return anwsers.fichierOrigine === 'Musique';
         }
     }
-]).then((result) => {
-    console.log(result)
+]).then((anwsers) => {
+    console.log(anwsers)
 });
 
