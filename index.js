@@ -1,2 +1,2 @@
 #!/usr/bin/env node
-const cmd = require('./Core/commander.js')
+const cmd = require('./Core/commander.js');

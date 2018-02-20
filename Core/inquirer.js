@@ -56,7 +56,7 @@ inquirer.prompt([
     {
         name: 'encodeMusique',
         type: 'checkbox',
-        message: 'Dans quel format voulez-vous encoder lla musique',
+        message: 'Dans quel format voulez-vous encoder la musique',
         choices: [
             '.mp3'
         ],
