@@ -43,7 +43,7 @@ inquirer.prompt([
     },
     {
         name: 'encodeVideo',
-        type: 'checkbox',
+        type: 'list',
         message: 'Dans quel format voulez-vous encoder la vidéo',
         choices: [
             '.avi',
@@ -55,7 +55,7 @@ inquirer.prompt([
     },
     {
         name: 'encodeMusique',
-        type: 'checkbox',
+        type: 'list',
         message: 'Dans quel format voulez-vous encoder la musique',
         choices: [
             '.mp3'
