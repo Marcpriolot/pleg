@@ -1,70 +1,65 @@
 const inquirer = require('inquirer');
 
+function launch() {
+    return inquirer.prompt([
+        {
+            name: 'pleg',
+            type: 'input',
+            message: 'Bonjour bienvenue sur Pleg. Une application qui va vous permettre de télécharger des vidéos ou des musique depuis la plateforme de YouTube,\n pour continuer, appuyez sur la touche "n".',
+            validate: function(str) {
+                return str === 'n';
+            }
+        },
+        {
+            name: 'video_audio',
+            type: 'list',
+            message: 'Que voulez-vous télécharger ?',
+            choices: [
+                'Vidéo',
+                'Musique'
+            ]
+        },
+        {
+            type: 'input',
+            message: 'Entrez l\'url de la vidéo : ',
+            name: 'urlIn'
+        },
+        {
+            name: 'qualite',
+            type: 'list',
+            message: 'Choississez la qualité de sortie :',
+            choices: [
+                'Haute qualité (HD)',
+                'Normale (< HD)',
+                'Basse qualité (360p)'
+            ],
+            when: function(anwsers) {
+                return anwsers.video_audio === 'Vidéo';
+            }
+        },
+        {
+            name: 'destination',
+            type: 'list',
+            message: 'Quelle est la destination du fichier',
+            choices: [
+                'Racine du projet',
+                'autre chemin'
+            ]
+        },
+        {
+            name: 'cheminOut',
+            type: 'input',
+            message: 'Entrez le chemin de destination',
+            when: function(anwsers) {
+                return anwsers.destination === 'autre chemin';
+            }
+        }
+    ])
+}
+module.exports = {
+    launch
+}
 
-inquirer.prompt([
-    {
-        name: 'pleg',
-        type: 'input',
-        message: 'Bonjour bienvenue sur Pleg. Une application qui va vous permettre d\'encoder des vidéos ou musique dans un autre format,\n pour continuer, appuyez sur la touche "n".',
-        validate: function(str) {
-            return str === 'n';
-        }
-    },
-    {
-        name: 'fichierOrigine',
-        type: 'list',
-        message: 'Que voulez-vous encoder ?',
-        choices: [
-            'Vidéo',
-            'Musique'
-        ]
-    },
-    {
-        type: 'input',
-        message: 'Entrez le chemin de votre fichier',
-        name: 'cheminIn'
-    },
-    {
-        name: 'destination',
-        type: 'list',
-        message: 'Quel est la destination du fichier',
-        choices: [
-            'Même endroit',
-            'autre chemin'
-        ]
-    },
-    {
-        type: 'input',
-        message: 'Entrez le chemin de destination',
-        name: 'cheminOut',
-        when: function(anwsers) {
-            return anwsers.destination === 'autre chemin';
-        }
-    },
-    {
-        name: 'encodeVideo',
-        type: 'list',
-        message: 'Dans quel format voulez-vous encoder la vidéo',
-        choices: [
-            '.avi',
-            '.mp4'
-        ],
-        when: function(anwsers) {
-            return anwsers.fichierOrigine === 'Vidéo';
-        }
-    },
-    {
-        name: 'encodeMusique',
-        type: 'list',
-        message: 'Dans quel format voulez-vous encoder la musique',
-        choices: [
-            '.mp3'
-        ],
-        when: function(anwsers) {
-            return anwsers.fichierOrigine === 'Musique';
-        }
-    }
-]).then((anwsers) => {
-    console.log(anwsers)
-});
+
+
 

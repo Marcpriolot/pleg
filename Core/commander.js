@@ -1,17 +1,18 @@
 #!/usr/bin/env node
 const program = require('commander');
 const actions = require('./actions.js');
+const inquirer = require('./inquirer.js');
 
 program
     .version('1.0.0')
-    .option('-a, --add', 'Télécharger une vidéo')
-    .option('-s, --supp', 'Supprimer une vidéo')
-    .option('-l, --list', 'Lister toutes les vidéos');
+    .option('-a, --add', 'Télécharger un fichier')
 
 program.parse(process.argv);
 
 if(program.add){
-    actions.ajouter()
+    inquirer.launch()
+        .then((answers) => actions.ajouter(answers))
+        .catch(err => console.log(err))
 }else if(program.supp){
     actions.supprimer()
 }else if(program.list){
