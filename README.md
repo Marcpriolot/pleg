@@ -33,10 +33,9 @@ Si vous rencontrez des difficultés, suivez les instructions de ce site : <https
 
 ## Dépendances 
 
-Pleg à besoin de plusieurs chose pour fonctionner, notament :
+Pleg à besoin de plusieurs chose pour fonctionner, notamment :
 
 * youtube-dl
 * inquirer
 * commander
 * path
-* exec
