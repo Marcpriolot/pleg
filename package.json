@@ -1,5 +1,5 @@
 {
-  "name": "tppleg",
+  "name": "pleg",
   "version": "1.0.0",
   "description": "Download video on YouTube",
   "main": "index.js",
@@ -17,8 +17,7 @@
   },
   "homepage": "https://github.com/Marcpriolot/pleg#readme",
   "dependencies": {
-    "commander": "^2.15.0",
-    "exec": "^0.2.1",
+    "commander": "^2.15.1",
     "inquirer": "^5.1.0",
     "path": "^0.12.7",
     "youtube-dl": "^1.12.2"

@@ -31,3 +31,12 @@ Il nous reste donc ça à finir et à ajouter d'autres fonctionnalités, comme l
 Il se peut qu'avec **Window**, Pleg est du mal à fonctionner à cause d'un exécutable qui se trouve dans les modules de **Youtube-dl**.
 Si vous rencontrez des difficultés, suivez les instructions de ce site : <https://rg3.github.io/youtube-dl/download.html> 
 
+## Dépendances 
+
+Pleg à besoin de plusieurs chose pour fonctionner, notament :
+
+* youtube-dl
+* inquirer
+* commander
+* path
+* exec
