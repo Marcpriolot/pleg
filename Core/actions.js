@@ -4,7 +4,7 @@ const path = require('path');
 const fs =  require ('fs');
 const exec = require('child_process').exec;
 
-var youtubedl = require('youtube-dl');
+let youtubedl = require('youtube-dl');
 
 
 
@@ -46,14 +46,13 @@ function ajouter(a) {
             console.log('Titre :', info.title);
             console.log('Info fichier: ' + info.filename);
             console.log('Taille: ' + info.size);
-           if(a.destination === 'autre chemin') {
-               exec('cd ~/Desktop/dossier', function(err, stdout, stderr) {
-                   const file = path.join(__dirname, info._filename);
-                   video.pipe(fs.createWriteStream(file));
-                   if(err) {
-                   return console.error('ERR > ', err)
-                   }
-               });
+
+            //Test de l'option autre chemin
+           if(a.destination === 'autre chemin (non fonctionnel)') {
+               console.log('Autre chemin');
+               exec('cd ~/Desktop/');
+               const file = path.join(__dirname, info._filename);
+               video.pipe(fs.createWriteStream(file));
             } else {
                 const file = path.join('./', info._filename);
                 video.pipe(fs.createWriteStream(file));
@@ -71,4 +70,4 @@ function ajouter(a) {
 
 module.exports = {
     ajouter,
-}
+};

@@ -42,8 +42,8 @@ function launch() {
             type: 'list',
             message: 'Quelle est la destination du fichier',
             choices: [
-                'Racine du projet',
-                'autre chemin'
+                'A l\'endroit de l\'exécution',
+                'autre chemin (non fonctionnel)'
             ]
         },
         {
@@ -58,7 +58,7 @@ function launch() {
 }
 module.exports = {
     launch
-}
+};
 
 
 
